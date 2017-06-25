@@ -1,6 +1,13 @@
 <?php
 if($_POST['id_usuario'] && $_POST['letras'] && $_POST['respuestas'] && $_POST['seleccion'] && $_POST['tiempo']){
-	$mysqli=new mysqli($_ENV['MYSQL_HOST'],$_ENV['MYSQL_USER'],$_ENV['MYSQL_PASS']);
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+	$server = $url["host"];
+	$username = $url["user"];
+	$password = $url["pass"];
+	$db = substr($url["path"], 1);
+
+	$mysqli=new mysqli($server,$username,$password);
 
 	// Check connection
 	if ($mysqli->connect_errno) {
@@ -8,7 +15,7 @@ if($_POST['id_usuario'] && $_POST['letras'] && $_POST['respuestas'] && $_POST['s
 	  	exit();
 	}
 
-	if($mysqli->select_db($_ENV["MYSQL_DB"])){
+	if($mysqli->select_db($db)){
 		$nueva_prueba = false;
 		$sql = 'SELECT MAX(id_prueba) as id_prueba FROM `resultados` WHERE id_usuario='.$_POST['id_usuario'];
 		//$sql .= ' ORDER BY id_prueba DESC';
@@ -89,7 +96,14 @@ if($_POST['id_usuario'] && $_POST['letras'] && $_POST['respuestas'] && $_POST['s
 	$mysqli->close();
 
 } elseif($_GET['id_usuario']) {
-	$mysqli=new mysqli($_ENV['MYSQL_HOST'],$_ENV['MYSQL_USER'],$_ENV['MYSQL_PASS'], $_ENV['MYSQL_DB']);
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+	$server = $url["host"];
+	$username = $url["user"];
+	$password = $url["pass"];
+	$db = substr($url["path"], 1);
+
+	$mysqli=new mysqli($server,$username,$password,$db);
 
 	// Check connection
 	if ($mysqli->connect_errno) {

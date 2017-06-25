@@ -1,6 +1,13 @@
 <?php
 if($_GET['email']){
-	$mysqli=new mysqli($_ENV['MYSQL_HOST'],$_ENV['MYSQL_USER'],$_ENV['MYSQL_PASS']);
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+	$server = $url["host"];
+	$username = $url["user"];
+	$password = $url["pass"];
+	$db = substr($url["path"], 1);
+
+	$mysqli=new mysqli($server,$username,$password);
 
 	// Check connection
 	//if (mysqli_connect_errno()) {
@@ -9,7 +16,7 @@ if($_GET['email']){
 	  	exit();
 	}
 
-	if($mysqli->select_db($_ENV["MYSQL_DB"])){
+	if($mysqli->select_db($db)){
 		$sql = 'SELECT * FROM `usuarios` WHERE email="'.$_GET['email'].'"';
 
 		$result = $mysqli->query($sql);
