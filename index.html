@@ -1,0 +1,71 @@
+﻿<html>
+	<head>
+		<title>What is that?</title>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-16">
+		<meta name="application-name" content="What is that?">
+		<meta name="description" content="Test de autoevaluación desarrollado para la Píldora de Terminología de Cetelem.">
+		<meta name="keywords" content="Cetelem, Cetepalabra, Formación, RRHH, What is that?">
+		<meta name="author" content="Alejandro Fernández Haro">
+		<meta name="author" content="Marta López-Durán Vílchez">
+		<meta name="copyright" content="2013, Alejandro Fernández Haro, Marta López-Durán Vílchez">
+		<link href='https://www.cetelem.es/banco/bancodocs/img/cetelem.ico' rel='shortcut icon'/>
+		<link rel="stylesheet" type="text/css" href="assets/styles.css">
+	<!--	<meta name="viewport" content="initial-scale=1.0;user-scalable=1" /> -->
+		<script type="text/javascript" src="assets/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="assets/javascript.js"></script>
+	</head>
+	<body>
+		<div class="zoom" id="zoom" style="zoom:1;">
+		<div class="body" id="body">
+		<div id="tiempo"></div>
+		<script type="text/javascript">
+		medidas();
+		document.getElementById("body").style.width = 480;
+		document.getElementById("body").style.height = 480;
+		document.getElementById("body").style.left = centro_x - $("#body").width();
+		document.getElementById("body").style.top = centro_y - $("#body").height();
+		var html ="<div id='centro'>"
+				+ "<img src='./cetelem.jpg' width=200px heigth=200px alt='Cetelem' style='display: block;' /><p style='padding-left:20px;padding-top:0px;margin:0px'>"
+				+ "Puntos: <input type='text' value='0 de 0' id='puntos' style='text-align:center;border:none;width:110px;font:inherit;color:black;background-color:inherit' disabled='true' /></p>" 
+				+ "</div>";
+		
+		radio = 200;
+		var inc_grados = (2*Math.PI)/preguntas.length;
+		
+		for (var i = 0; i<preguntas.length; i++){
+			var grados = inc_grados*i;
+			var x = (centro_x + radio*Math.sin(grados))-(centro_x - 220);
+			var y = (centro_y - radio*Math.cos(grados))-(centro_y - 220);
+			
+			html += "<input type='button' class=rounded-corners value='"+preguntas[i].letra.toUpperCase()+"' id='"+preguntas[i].letra+"' onClick=mostrarPregunta('"+preguntas[i].letra+"') style=position:absolute;top:"+y+";left:"+x+";"+fondo(preguntas[i].respuesta)+";>"
+		}
+		document.write(html);
+		document.getElementById("puntos").value = puntos+" de "+respondidas;
+		</script>
+		</div>
+		<div class="copyright" id="copyright" style="visibility:hidden;">Cetelem&copy;2013</div>
+		</div>
+		<div class="marco_pregunta" id="marco_pregunta">
+			<input type="text" value="a" id="letra_pregunta" disabled="true" /><br />
+			<p id="palabra_pregunta"></p>
+			<input type="button" class="opcion_pregunta" value="Palabra" id="a_pregunta" onClick="respuesta('a')" /><br />
+			<input type="button" class="opcion_pregunta" value="Palabra" id="b_pregunta" onClick="respuesta('b')" /><br />
+			<input type="button" class="opcion_pregunta" value="Palabra" id="c_pregunta" onClick="respuesta('c')" /><br />
+			<p class="respuesta_pregunta" id="respuesta_pregunta">Correcto</p><br />
+		</div>
+		<div class="fin_marco" id="fin_marco">
+			<img src='./cetelem-fin.jpg' heigth="200px" alt="Fin" />
+			<div class="fin_texto" id="fin_texto"></div>
+		</div>
+		<div class="email_form" id="email_form">
+			<img src='./cetelem-fin2.jpg' height="200px" alt="¡Empecemos!" />
+			<div class="email_form_texto" id="email_form_texto">
+				<h2>¡Hola! Para empezar es necesario que indiques tu email</h2>
+				<input type="email" id="email" width="100px" onsubmit="fijarEmail()">
+				<button onclick="fijarEmail()">Empezar</button>
+				<div id="error"></div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

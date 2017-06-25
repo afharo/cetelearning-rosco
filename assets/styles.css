@@ -1,0 +1,200 @@
+.body{
+	position:absolute;
+	/*border: 8px groove #148e1c;*/
+	width: 480px;
+	height: 480px;
+	top: 0px;
+	left: 0px;
+	margin-top:20px;
+}
+.copyright{
+	position: absolute;
+	width: 480px;
+	text-align: center;
+	font-size: 12px;
+	color: grey;
+}
+a{
+	color: white;
+	font-style: normal;
+	font-variant: normal;
+	text-decoration: none;
+}
+.rounded-corners {
+	position:absolute;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #5286ff;
+	background: url(../botones_2.png) 6 6 no-repeat;
+	border: none;
+	width: 40px;
+	height: 40px;
+	font-size: 20px;
+	padding-left: 0px;
+	padding-right: 0px;
+	color: white;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-khtml-border-radius: 50px;
+	border-radius: 50px;
+	z-index: 1;
+}
+.marco_pregunta {
+	position:absolute;
+	text-align: left;
+	color: black;
+	background-color: #d0ffc1;
+	width: 90%;
+	top: 3%;
+	left: 5%;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-khtml-border-radius: 50px;
+	-ms-border-radius: 50px;
+	border-radius: 50px;
+	z-index: 2;
+	display: block;
+	visibility: hidden;
+}
+.opcion_pregunta{
+	background-color: #e7e4e4;
+	width: 95%;
+	border: none;
+	font-size: 24px;
+	font-style: normal;
+	text-align: left;
+	margin-left: 30px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+	padding-left: 30px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-khtml-border-radius: 50px;
+	border-radius: 50px;
+}
+#letra_pregunta {
+	background-color: #d0ffc1;
+	border: none;
+	font-size: 40px;
+	font-style: bold;
+	margin: 30px 0px 0px 30px;
+	padding: 0px;
+	width: 90%;
+	display: block; 
+}
+#palabra_pregunta {
+	background-color: #d0ffc1;				
+	border: none;
+	width: 95%;
+	font-size: 20px;
+	font-style: italic;
+	margin-top: 0px;
+	margin-left: 30px;
+	margin-bottom: 10px;
+	display: block;
+}
+.respuesta_pregunta {
+	background-color: #d0ffc1;
+	color: #000000;				
+	border: none;
+	font-size: 24px;
+	font-style: normal;
+	text-align: left;
+	margin-top: 0;
+	margin-left: 30px;
+	display: block;
+	visibility: hidden;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-khtml-border-radius: 50px;
+	border-radius: 50px;
+}
+
+#centro {
+	font-size: 24px;
+	position: relative;
+	left:140;
+	top:100;
+}
+
+#tiempo {
+	text-align: right;
+    position: relative;
+    top: 0.5em;
+    right: 0.5em;
+}
+
+.fin_marco {
+	position:absolute;
+	text-align: left;
+	color: black;
+	background-color: white;
+	width: 60%;
+	height: 80%;
+	top: 10%;
+	left: 20%;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-khtml-border-radius: 50px;
+	-ms-border-radius: 50px;
+	border-radius: 50px;
+	z-index: 3;
+	display: block;
+	visibility: hidden;
+}
+
+.fin_texto {
+	text-align: left;
+	vertical-align: center;
+	color: black;
+	background: url(../blocnotas2.png);
+	width: 80%;
+	position: relative;
+	left: 250px;
+	top: -200px;
+	right: 10px;
+	padding: 12px;
+	padding-bottom: 20px;
+}
+
+.email_form {
+	position:absolute;
+	text-align: left;
+	color: black;
+	background-color: white;
+	width: 60%;
+	height: 80%;
+	top: 10%;
+	left: 20%;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-khtml-border-radius: 50px;
+	-ms-border-radius: 50px;
+	border-radius: 50px;
+	z-index: 3;
+	display: block;
+	visibility: hidden;
+}
+
+.email_form_texto {
+	text-align: left;
+	vertical-align: center;
+	color: black;
+	width: 80%;
+	position: relative;
+	left: 250px;
+	top: -200px;
+	right: 10px;
+	padding: 12px;
+	padding-bottom: 20px;
+}
+
+#error {
+	display: none;
+	background-color: #fdffcf;
+	color: black;
+	position: relative;
+	margin-top: 0.5em;
+	padding: 0.5em;
+}
